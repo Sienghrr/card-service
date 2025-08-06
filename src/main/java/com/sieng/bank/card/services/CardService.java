@@ -7,6 +7,7 @@ import com.sieng.bank.card.entity.Card;
 public interface CardService {
 	
 Card save(Card loan);
-	
-	List<Card> getList();
+List<Card> getList();
+List<Card> getCardByCustomerId(Long customerId);
+
 }

@@ -13,14 +13,19 @@ import com.sieng.bank.card.services.CardService;
 public class CardServiceImpl implements CardService{
 	
 	@Autowired
-	private CardRepository loanRepository;
+	private CardRepository cardRepository;
 	@Override
 	public Card save(Card loan) {
-		return loanRepository.save(loan);
+		return cardRepository.save(loan);
 	}
 	@Override
 	public List<Card> getList() {
-		return loanRepository.findAll();
+		return cardRepository.findAll();
+	}
+
+	@Override
+	public List<Card> getCardByCustomerId(Long customerId) {
+		return cardRepository.findCardByCustomerId(customerId);
 	}
 
 }

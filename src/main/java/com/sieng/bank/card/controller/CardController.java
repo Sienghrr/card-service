@@ -3,11 +3,7 @@ package com.sieng.bank.card.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.sieng.bank.card.dto.CardDTO;
 import com.sieng.bank.card.entity.Card;
@@ -33,6 +29,11 @@ public class CardController {
 	@GetMapping
 	public ResponseEntity<?> list(){
 		return ResponseEntity.ok(cardService.getList());
+	}
+
+	@GetMapping("{customerId}")
+	public ResponseEntity<?> getCardByCustomerId(@PathVariable Long customerId){
+		return ResponseEntity.ok(cardService.getCardByCustomerId(customerId));
 	}
 
 }

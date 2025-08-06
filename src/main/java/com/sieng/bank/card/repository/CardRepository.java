@@ -4,6 +4,8 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 
 import com.sieng.bank.card.entity.Card;
 
-public interface CardRepository extends MongoRepository<Card, Long>{
+import java.util.List;
 
+public interface CardRepository extends MongoRepository<Card, Long>{
+    List<Card> findCardByCustomerId(Long customerId);
 }
